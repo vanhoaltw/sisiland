@@ -1,0 +1,7 @@
+export const SCREEN_WIDTH = {
+  MOBILE: 425,
+  TABLET: 768,
+  LAPTOP: 1024,
+  LAPTOPL: 1440,
+  LAPTOP4K: 2560,
+};

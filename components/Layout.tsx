@@ -1,6 +1,9 @@
 import getConfig from "next/config";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import Header from "./Header";
+import Footer from "./Footer";
+import { IoSearch } from "react-icons/io5";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -79,7 +82,27 @@ const Layout = ({ children, ...customMeta }: LayoutProps) => {
         )}
         <title key="title">{meta.title}</title>
       </Head>
-      <main>{children}</main>
+      <main>
+        <div className="mb-2" style={{ boxShadow: "0 0 10px 0 rgba(0,0,0,0.19)" }}>
+          <div className="container mx-auto flex items-center justify-end gap-8 p-2">
+            <fieldset className="relative text-gray-300 h-7">
+              <input
+                className="border-current rounded-md text-sm w-full outline-none shadow-none h-full"
+                type="text"
+                placeholder="Search"
+              />
+              <IoSearch
+                className="absolute placeholder:text-current right-2 bottom-1.5  text-gray-400"
+                size={18}
+              />
+            </fieldset>
+            <img src="/images/us-flag.gif" height="auto" width={25} />
+          </div>
+        </div>
+        <Header />
+        {children}
+        <Footer />
+      </main>
     </>
   );
 };
